@@ -1,0 +1,196 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Notes App</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@ionic/core/css/ionic.bundle.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">  
+<script type="module" src="https://cdn.jsdelivr.net/npm/@ionic/core/dist/ionic/ionic.esm.js"></script>
+<script nomodule src="https://cdn.jsdelivr.net/npm/@ionic/core/dist/ionic/ionic.js"></script>
+
+</head>
+<body>
+<ion-app>
+    <ion-tabs>
+        <!-- Tab views -->   
+        <ion-tab tab="profile">
+          <ion-header>
+            <ion-toolbar>
+              <ion-buttons slot="start">
+                <ion-back-button></ion-back-button>
+              </ion-buttons>
+              <ion-title>MINDLY</ion-title>
+            </ion-toolbar>
+          
+            <ion-toolbar>
+              <ion-title>Welcome to MINDLY. Your health pal.</ion-title>
+            </ion-toolbar>
+        </ion-header>
+        <div class="login-page">
+          <div class="form">
+            <form class="register-form">
+              <input type="text" placeholder="name"/>
+              <input type="password" placeholder="password"/>
+              <input type="text" placeholder="email address"/>
+              <button>create</button>
+              <p class="message">Already registered? <a href="#">Sign In</a></p>
+            </form>
+
+              <form class="login-form">
+                <input type="text" placeholder="email"/>
+                <input type="text" placeholder="username"/>
+                <input type="password" placeholder="password"/>
+                <button><a href="index.html">Sign Up</a></button>
+                <p class="message">Already have an account? <a href="#">Log In</a></p>
+              </form>
+            </div>
+          </div>
+        </ion-tab>
+         
+        <ion-tab tab="check">
+          <ion-header>
+            <ion-toolbar color="primary">
+              <ion-title>Mood Tracker</ion-title>
+            </ion-toolbar>
+          </ion-header>
+          <ion-content>
+            <ion-grid>
+              <ion-row>
+                <ion-col size-md="6" offset-md="3">
+                  <ion-card>
+                    <ion-card-header>
+                      <ion-card-title>Mood Log</ion-card-title>
+                    </ion-card-header>
+                    <ion-card-content>
+                      <ion-item>
+                        <ion-label position="floating">What's your current mood?</ion-label>
+                        <ion-input type="text" id="input-reason"></ion-input>
+                      </ion-item>
+                      <ion-item>
+                        <ion-label position="floating">Why are you feeling this way?</ion-label>
+                        <ion-input type="text" id="input-amount"></ion-input>
+                      </ion-item>
+                      <div margin-vertical text-right>
+                        <ion-button fill="outline" color="danger" id="btn-cancel">
+                          <ion-icon slot="start" name="close"></ion-icon
+                          >Clear</ion-button
+                        >
+                        <ion-button id="btn-confirm">
+                          <ion-icon slot="start" name="add"></ion-icon>
+                          Add Mood Log
+                        </ion-button>
+                      </div>
+                    </ion-card-content>
+                  </ion-card>
+                </ion-col>
+              </ion-row>
+              <ion-row>
+                <ion-col size-md="6" offset-md="3">
+                  <ion-list id="expense-list"></ion-list>
+                </ion-col>
+              </ion-row>
+              <ion-row>
+                <ion-col size-md="6" offset-md="3">
+                  <p margin>Mood Tracker: <span id="total-expenses"></span></p>
+                </ion-col>
+              </ion-row>
+            </ion-grid>
+          </ion-content>
+          <ion-alert-controller></ion-alert-controller>
+        </ion-tab>
+      
+        <ion-tab tab="meals">
+          <div class="modal">
+              <div class="modal-background"></div>
+              <div class="modal-card">
+                  <article class="message is-warning">
+                      <div class="message-header">
+                          <p>Warning</p>
+                      </div>
+                      <div class="message-body">
+                              Are you sure you want to delete all of your notes?
+                      </div>
+                      <footer class="modal-card-foot">
+                          <button class="button is-warning confirm-delete">Yup, Delete 'em</button>
+                          <button class="button close-modal">Nope, Go Back!</button>
+                      </footer>
+                  </article>
+              </div>
+          </div>
+          <ion-header>
+            <ion-toolbar>
+              <ion-title text-align: center;>MINDLY</ion-title>
+            </ion-toolbar>
+          
+            <ion-toolbar>
+              <ion-title text-align: center;>Welcome to MINDLY. Your health pal.</ion-title>
+            </ion-toolbar>
+        </ion-header>
+        <ion-card-header>
+          <ion-card-subtitle>Mindly Meal Log</ion-card-subtitle>
+          <ion-card-title>Time to log your meals!</ion-card-title>
+        </ion-card-header>
+                  <div class="section">
+                      <ion-card>                          
+                          <ion-card-content>
+                              <h1 class="title">Hi, what did you eat today? ٩ (◕‿◕) ۶</h1>
+                              <form class="card-form">
+                                  <div class="field is-grouped">
+                                      <p class="control is-expanded">
+                                          <input class="input" type="text" placeholder="Breakfast/Lunch/Dinner">
+                                      </p>
+                                  </div>
+                                  <div class="field">
+                                      <div class="control">
+                                          <textarea class="textarea" placeholder="e.g I ate Acai Bowl today with my friends, ate more than I did yesterday."></textarea>
+                                      </div>
+                                  </div>
+                                  <div class="field is-grouped">
+                                      <div class="control">
+                                          <button type="submit" class="button is-info">
+                                              Add Meal Log
+                                          </button>
+                                      </div>
+                                      <div class="control">
+                                          <button class="button is-text active-modal">
+                                              Clear All Logs
+                                          </button>
+                                      </div>
+                                  </div>
+                              </form>
+                          </ion-card-content>
+                        </ion-card>
+                      </ion-card>
+                  </div>
+                  
+              <div class="column">
+                  <div class="section">
+                      <div class="card-list"></div>
+                  </div>
+              </div>
+              
+          </section>
+      </ion-tab>
+      
+        <!-- Tab bar -->
+        <ion-tab-bar slot="bottom">
+          <ion-tab-button tab="meals">
+            <ion-icon name="bookmarks"></ion-icon>
+            <ion-label>Meal Log</ion-label>
+          </ion-tab-button>
+      
+          <ion-tab-button tab="check">
+            <ion-icon name="clipboard"></ion-icon>
+            <ion-label>Check In</ion-label>
+          </ion-tab-button>
+
+          <ion-tab-button tab="profile">
+            <ion-icon name="person-circle"></ion-icon>
+            <ion-label>Profile</ion-label>
+          </ion-tab-button>
+        </ion-tab-bar>
+      </ion-tabs>
+</ion-app>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.6.0/css/bulma.css">
+    <script src="main.js"></script>
+</body>
+</html>
